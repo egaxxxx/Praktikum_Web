@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistem Informasi Kegiatan Lingkungan RT 05. Jadwal, dokumentasi, dan pendaftaran kegiatan warga.">
+    <title>Sistem Informasi Kegiatan Lingkungan RT 05</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html"><strong>Info Warga RT 05</strong></a>
+            <ul>
+                <li><a href="#pengumuman">Pengumuman</a></li>
+                <li><a href="#jadwal">Jadwal Kegiatan</a></li>
+                <li><a href="#dokumentasi">Dokumentasi</a></li>
+                <li><a href="#pendaftaran">Pendaftaran Kegiatan</a></li>
+                <li><a href="admin_login.html">Login Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <section id="hero">
+            <h1>Selamat Datang di Sistem Informasi Kegiatan Lingkungan RT 05</h1>
+            <p>Pusat informasi resmi untuk seluruh kegiatan, berita terbaru, dan partisipasi aktif warga RT 05.</p>
+            <a href="#pengumuman">Lihat Pengumuman Terbaru</a>
+        </section>
+
+        <hr>
+
+        <section id="pengumuman">
+            <h2>Pengumuman Penting</h2>
+
+            <article>
+                <h3>Lomba Kebersihan Antar Blok</h3>
+                <p>Dalam rangka menyambut hari jadi kompleks, akan diadakan lomba kebersihan antar blok. Pemenang akan mendapatkan hadiah menarik!</p>
+                <p><em>Diposting: <time datetime="2025-09-14">14 September 2025</time></em></p>
+            </article>
+            <article>
+                <h3>Pengumuman Libur Nasional</h3>
+                <p>Seluruh kegiatan rutin RT akan diliburkan pada tanggal 17 Agustus 2025 dalam rangka peringatan HUT RI.</p>
+                <p><em>Diposting: <time datetime="2025-08-01">1 Agustus 2025</time></em></p>
+            </article>
+
+            <article>
+                <h3>Sosialisasi Program Bank Sampah</h3>
+                <p>Akan diadakan sosialisasi mengenai program Bank Sampah RT di Balai Warga. Diharapkan kehadiran perwakilan setiap rumah.</p>
+                <p><em>Diposting: <time datetime="2025-07-28">28 Juli 2025</time></em></p>
+            </article>
+            
+            <article>
+                <h3>Pengumuman Arisan Bulanan</h3>
+                <p>Arisan warga RT 05 akan diadakan pada hari Minggu, 22 September 2025 pukul 19.00 di rumah Bapak Budi (No. 12).</p>
+                <p><em>Diposting: <time datetime="2025-09-05">5 September 2025</time></em></p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="jadwal">
+            <h2>Jadwal Kegiatan Mendatang</h2>
+
+            <article>
+                <h3>Vaksinasi Hewan Peliharaan</h3>
+                <p>Bekerja sama dengan dinas kesehatan, akan diadakan vaksinasi gratis untuk anjing dan kucing.</p>
+                <ul>
+                    <li><strong>Tanggal:</strong> <time datetime="2025-09-25">25 September 2025</time></li>
+                    <li><strong>Waktu:</strong> 09:00 WIB - Selesai</li>
+                    <li><strong>Lokasi:</strong> Taman Kompleks RT 05</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Kerja Bakti Rutin Bulanan</h3>
+                <p>Kegiatan membersihkan lingkungan RT secara gotong royong.</p>
+                <ul>
+                    <li><strong>Tanggal:</strong> <time datetime="2025-09-10">10 September 2025</time></li>
+                    <li><strong>Waktu:</strong> 07:00 WIB - Selesai</li>
+                    <li><strong>Lokasi:</strong> Titik kumpul Pos Ronda RT 05</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Pertemuan Rutin Ibu-Ibu PKK</h3>
+                <p>Pertemuan bulanan PKK untuk membahas kegiatan sosial dan ekonomi warga.</p>
+                <ul>
+                    <li><strong>Tanggal:</strong> <time datetime="2025-09-20">20 September 2025</time></li>
+                    <li><strong>Waktu:</strong> 16:00 WIB - Selesai</li>
+                    <li><strong>Lokasi:</strong> Balai Pertemuan RT 05</li>
+                </ul>
+            </article>
+        </section>
+
+        <hr>
+        
+        <section id="dokumentasi">
+            <h2>Dokumentasi Kegiatan yang Lalu</h2>
+            </section>
+        <hr>
+        <section id="pendaftaran">
+            <h2>Daftar Partisipasi Kegiatan</h2>
+            <p>Silakan mengisi formulir di bawah ini untuk mendaftarkan diri Anda sebagai peserta kegiatan.</p>
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Formulir Pendaftaran</legend>
+                    <p>
+                        <label for="nama_lengkap">Nama Lengkap:</label><br>
+                        <input type="text" id="nama_lengkap" name="nama_lengkap" required>
+                    </p>
+                    <p>
+                        <label for="nomor_rumah">Nomor Rumah:</label><br>
+                        <input type="text" id="nomor_rumah" name="nomor_rumah" required>
+                    </p>
+                    <p>
+                        <label for="kegiatan_dipilih">Pilih Kegiatan:</label><br>
+                        <select id="kegiatan_dipilih" name="kegiatan_dipilih">
+                            <option value="kerja_bakti">Kerja Bakti Rutin Bulanan</option>
+                            <option value="sosialisasi_banksampah">Sosialisasi Bank Sampah</option>
+                            <option value="lomba_kebersihan">Lomba Kebersihan Antar Blok</option>
+                            <option value="vaksinasi_hewan">Vaksinasi Hewan Peliharaan</option>
+                        </select>
+                    </p>
+                    <button type="submit">Daftar Sekarang</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2025 Pengurus RT 05. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
