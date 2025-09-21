@@ -5,119 +5,408 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistem Informasi Kegiatan Lingkungan RT 05. Jadwal, dokumentasi, dan pendaftaran kegiatan warga.">
     <title>Sistem Informasi Kegiatan Lingkungan RT 05</title>
+    <style>
+        /* == Google Fonts (Optional, untuk tampilan font yang lebih baik) == */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* == Reset & Global Styles == */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        /* == Header & Navigation == */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--box-shadow);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Agar responsif */
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* == Hero Section == */
+        #hero {
+            background: linear-gradient(rgba(0, 123, 255, 0.7), rgba(0, 123, 255, 0.7)), url('https://via.placeholder.com/1200x400.png?text=Lingkungan+RT+05') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+        
+        #hero h1 {
+            font-size: 2.8rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* == Main Content & Sections == */
+        main {
+            padding: 2rem 0;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            /* Memberi sedikit padding agar ada jarak saat di-scroll */
+            scroll-margin-top: 80px; 
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* == Card Layout using CSS Grid == */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h3 {
+            color: var(--primary-color);
+        }
+
+        .card p em {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+        
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* == Form Styling == */
+        #pendaftaran form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        #pendaftaran fieldset {
+            border: none;
+        }
+
+        #pendaftaran legend {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        #pendaftaran p {
+            margin-bottom: 1rem;
+        }
+
+        #pendaftaran label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        #pendaftaran input,
+        #pendaftaran select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+        
+        #pendaftaran button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #pendaftaran button:hover {
+            background-color: #0056b3;
+        }
+        
+        /* == Footer == */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            background-color: #343a40;
+            color: white;
+        }
+
+        /* == Media Queries for Responsiveness == */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+                gap: 0.5rem;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 0.5rem;
+                background: var(--background-color);
+                border-radius: var(--border-radius);
+            }
+
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <nav>
-            <a href="index.html"><strong>Info Warga RT 05</strong></a>
-            <ul>
-                <li><a href="#pengumuman">Pengumuman</a></li>
-                <li><a href="#jadwal">Jadwal Kegiatan</a></li>
-                <li><a href="#dokumentasi">Dokumentasi</a></li>
-                <li><a href="#pendaftaran">Pendaftaran Kegiatan</a></li>
-                <li><a href="admin_login.html">Login Admin</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo"><strong>Info Warga RT 05</strong></a>
+                <ul>
+                    <li><a href="#pengumuman">Pengumuman</a></li>
+                    <li><a href="#jadwal">Jadwal Kegiatan</a></li>
+                    <li><a href="#dokumentasi">Dokumentasi</a></li>
+                    <li><a href="#pendaftaran">Pendaftaran</a></li>
+                    <li><a href="admin_login.html">Login Admin</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <hr>
-
-    <main>
+    <main class="container">
 
         <section id="hero">
             <h1>Selamat Datang di Sistem Informasi Kegiatan Lingkungan RT 05</h1>
             <p>Pusat informasi resmi untuk seluruh kegiatan, berita terbaru, dan partisipasi aktif warga RT 05.</p>
-            <a href="#pengumuman">Lihat Pengumuman Terbaru</a>
+            <a href="#pengumuman" class="cta-button">Lihat Pengumuman Terbaru</a>
         </section>
-
-        <hr>
 
         <section id="pengumuman">
             <h2>Pengumuman Penting</h2>
-
-            <article>
-                <h3>Lomba Kebersihan Antar Blok</h3>
-                <p>Dalam rangka menyambut hari jadi kompleks, akan diadakan lomba kebersihan antar blok. Pemenang akan mendapatkan hadiah menarik!</p>
-                <p><em>Diposting: <time datetime="2025-09-14">14 September 2025</time></em></p>
-            </article>
-            <article>
-                <h3>Pengumuman Libur Nasional</h3>
-                <p>Seluruh kegiatan rutin RT akan diliburkan pada tanggal 17 Agustus 2025 dalam rangka peringatan HUT RI.</p>
-                <p><em>Diposting: <time datetime="2025-08-01">1 Agustus 2025</time></em></p>
-            </article>
-
-            <article>
-                <h3>Sosialisasi Program Bank Sampah</h3>
-                <p>Akan diadakan sosialisasi mengenai program Bank Sampah RT di Balai Warga. Diharapkan kehadiran perwakilan setiap rumah.</p>
-                <p><em>Diposting: <time datetime="2025-07-28">28 Juli 2025</time></em></p>
-            </article>
-            
-            <article>
-                <h3>Pengumuman Arisan Bulanan</h3>
-                <p>Arisan warga RT 05 akan diadakan pada hari Minggu, 22 September 2025 pukul 19.00 di rumah Bapak Budi (No. 12).</p>
-                <p><em>Diposting: <time datetime="2025-09-05">5 September 2025</time></em></p>
-            </article>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Lomba Kebersihan Antar Blok</h3>
+                    <p>Dalam rangka menyambut hari jadi kompleks, akan diadakan lomba kebersihan antar blok. Pemenang akan mendapatkan hadiah menarik!</p>
+                    <p><em>Diposting: <time datetime="2025-09-14">14 September 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <h3>Pengumuman Arisan Bulanan</h3>
+                    <p>Arisan warga RT 05 akan diadakan pada hari Minggu, 22 September 2025 pukul 19.00 di rumah Bapak Budi (No. 12).</p>
+                    <p><em>Diposting: <time datetime="2025-09-05">5 September 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <h3>Sosialisasi Program Bank Sampah</h3>
+                    <p>Akan diadakan sosialisasi mengenai program Bank Sampah RT di Balai Warga. Diharapkan kehadiran perwakilan setiap rumah.</p>
+                    <p><em>Diposting: <time datetime="2025-07-28">28 Juli 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <h3>Pengumuman Libur Nasional</h3>
+                    <p>Seluruh kegiatan rutin RT akan diliburkan pada tanggal 17 Agustus 2025 dalam rangka peringatan HUT RI.</p>
+                    <p><em>Diposting: <time datetime="2025-08-01">1 Agustus 2025</time></em></p>
+                </article>
+            </div>
         </section>
-
-        <hr>
 
         <section id="jadwal">
             <h2>Jadwal Kegiatan Mendatang</h2>
-
-            <article>
-                <h3>Vaksinasi Hewan Peliharaan</h3>
-                <p>Bekerja sama dengan dinas kesehatan, akan diadakan vaksinasi gratis untuk anjing dan kucing.</p>
-                <ul>
-                    <li><strong>Tanggal:</strong> <time datetime="2025-09-25">25 September 2025</time></li>
-                    <li><strong>Waktu:</strong> 09:00 WIB - Selesai</li>
-                    <li><strong>Lokasi:</strong> Taman Kompleks RT 05</li>
-                </ul>
-            </article>
-            <article>
-                <h3>Kerja Bakti Rutin Bulanan</h3>
-                <p>Kegiatan membersihkan lingkungan RT secara gotong royong.</p>
-                <ul>
-                    <li><strong>Tanggal:</strong> <time datetime="2025-09-10">10 September 2025</time></li>
-                    <li><strong>Waktu:</strong> 07:00 WIB - Selesai</li>
-                    <li><strong>Lokasi:</strong> Titik kumpul Pos Ronda RT 05</li>
-                </ul>
-            </article>
-
-            <article>
-                <h3>Pertemuan Rutin Ibu-Ibu PKK</h3>
-                <p>Pertemuan bulanan PKK untuk membahas kegiatan sosial dan ekonomi warga.</p>
-                <ul>
-                    <li><strong>Tanggal:</strong> <time datetime="2025-09-20">20 September 2025</time></li>
-                    <li><strong>Waktu:</strong> 16:00 WIB - Selesai</li>
-                    <li><strong>Lokasi:</strong> Balai Pertemuan RT 05</li>
-                </ul>
-            </article>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Vaksinasi Hewan Peliharaan</h3>
+                    <p>Bekerja sama dengan dinas kesehatan, akan diadakan vaksinasi gratis untuk anjing dan kucing.</p>
+                    <ul>
+                        <li><strong>Tanggal:</strong> <time datetime="2025-09-25">25 September 2025</time></li>
+                        <li><strong>Waktu:</strong> 09:00 WIB - Selesai</li>
+                        <li><strong>Lokasi:</strong> Taman Kompleks RT 05</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Kerja Bakti Rutin Bulanan</h3>
+                    <p>Kegiatan membersihkan lingkungan RT secara gotong royong.</p>
+                    <ul>
+                        <li><strong>Tanggal:</strong> <time datetime="2025-09-10">10 September 2025</time></li>
+                        <li><strong>Waktu:</strong> 07:00 WIB - Selesai</li>
+                        <li><strong>Lokasi:</strong> Titik kumpul Pos Ronda RT 05</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Pertemuan Rutin Ibu-Ibu PKK</h3>
+                    <p>Pertemuan bulanan PKK untuk membahas kegiatan sosial dan ekonomi warga.</p>
+                    <ul>
+                        <li><strong>Tanggal:</strong> <time datetime="2025-09-20">20 September 2025</time></li>
+                        <li><strong>Waktu:</strong> 16:00 WIB - Selesai</li>
+                        <li><strong>Lokasi:</strong> Balai Pertemuan RT 05</li>
+                    </ul>
+                </article>
+            </div>
         </section>
-
-        <hr>
         
+        <!-- ========== BAGIAN YANG DIPERBARUI ========== -->
         <section id="dokumentasi">
             <h2>Dokumentasi Kegiatan yang Lalu</h2>
-            </section>
-        <hr>
+            <div class="card-grid">
+                <article class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Kerja+Bakti" alt="Foto Kerja Bakti" style="width:100%; border-radius: var(--border-radius); margin-bottom: 1rem;">
+                    <h3>Kerja Bakti September</h3>
+                    <p>Warga bergotong royong membersihkan area taman dan selokan untuk kenyamanan bersama.</p>
+                    <p><em><time datetime="2025-09-10">10 September 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Lomba+17+Agustus" alt="Foto Lomba 17 Agustus" style="width:100%; border-radius: var(--border-radius); margin-bottom: 1rem;">
+                    <h3>Perlombaan 17 Agustus</h3>
+                    <p>Keseruan berbagai lomba dalam rangka merayakan Hari Kemerdekaan Republik Indonesia.</p>
+                    <p><em><time datetime="2025-08-17">17 Agustus 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Posyandu+Warga" alt="Foto Kegiatan Posyandu" style="width:100%; border-radius: var(--border-radius); margin-bottom: 1rem;">
+                    <h3>Kegiatan Posyandu</h3>
+                    <p>Pemeriksaan kesehatan rutin untuk balita dan ibu hamil yang diadakan di Balai Warga.</p>
+                    <p><em><time datetime="2025-07-15">15 Juli 2025</time></em></p>
+                </article>
+            </div>
+        </section>
+        <!-- ========== AKHIR BAGIAN YANG DIPERBARUI ========== -->
+
         <section id="pendaftaran">
             <h2>Daftar Partisipasi Kegiatan</h2>
-            <p>Silakan mengisi formulir di bawah ini untuk mendaftarkan diri Anda sebagai peserta kegiatan.</p>
-
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 1.5rem auto;">Silakan mengisi formulir di bawah ini untuk mendaftarkan diri Anda sebagai peserta kegiatan.</p>
             <form action="#" method="post">
                 <fieldset>
                     <legend>Formulir Pendaftaran</legend>
                     <p>
-                        <label for="nama_lengkap">Nama Lengkap:</label><br>
-                        <input type="text" id="nama_lengkap" name="nama_lengkap" required>
+                        <label for="nama_lengkap">Nama Lengkap:</label>
+                        <input type="text" id="nama_lengkap" name="nama_lengkap" required placeholder="Contoh: Budi Santoso">
                     </p>
                     <p>
-                        <label for="nomor_rumah">Nomor Rumah:</label><br>
-                        <input type="text" id="nomor_rumah" name="nomor_rumah" required>
+                        <label for="nomor_rumah">Nomor Rumah:</label>
+                        <input type="text" id="nomor_rumah" name="nomor_rumah" required placeholder="Contoh: A12">
                     </p>
                     <p>
-                        <label for="kegiatan_dipilih">Pilih Kegiatan:</label><br>
+                        <label for="kegiatan_dipilih">Pilih Kegiatan:</label>
                         <select id="kegiatan_dipilih" name="kegiatan_dipilih">
                             <option value="kerja_bakti">Kerja Bakti Rutin Bulanan</option>
                             <option value="sosialisasi_banksampah">Sosialisasi Bank Sampah</option>
@@ -130,8 +419,6 @@
             </form>
         </section>
     </main>
-
-    <hr>
 
     <footer>
         <p>&copy; 2025 Pengurus RT 05. Semua Hak Cipta Dilindungi.</p>
