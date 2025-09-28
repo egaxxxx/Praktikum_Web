@@ -15,11 +15,15 @@
             <nav>
                 <a href="index.html" class="logo"><strong>Info Warga RT 05</strong></a>
                 <ul>
-                    <li><a href="#pengumuman">Pengumuman</a></li>
-                    <li><a href="#jadwal">Jadwal Kegiatan</a></li>
-                    <li><a href="#dokumentasi">Dokumentasi</a></li>
-                    <li><a href="#pendaftaran">Pendaftaran</a></li>
-                    <li><a href="admin_login.html">Login Admin</a></li>
+                    <!-- MODIFIKASI DIMULAI DI SINI -->
+                    <li><a href="#pengumuman">📢 Pengumuman</a></li>
+                    <li><a href="#jadwal">📅 Jadwal Kegiatan</a></li>
+                    <li><a href="#dokumentasi">📸 Dokumentasi</a></li>
+                    <li><a href="#pendaftaran">📝 Pendaftaran</a></li>
+                    <li><a href="admin_login.html">🔒 Login Admin</a></li>
+                    <!-- MODIFIKASI SELESAI -->
+                    <!-- TOMBOL DARK MODE DITAMBAHKAN DI SINI -->
+                    <li><button id="theme-toggle" class="theme-button">🌙</button></li>
                 </ul>
             </nav>
         </div>
@@ -119,16 +123,20 @@
         <section id="pendaftaran">
             <h2>Daftar Partisipasi Kegiatan</h2>
             <p style="text-align: center; max-width: 600px; margin: 0 auto 1.5rem auto;">Silakan mengisi formulir di bawah ini untuk mendaftarkan diri Anda sebagai peserta kegiatan.</p>
-            <form action="#" method="post">
+            <form action="#" method="post" novalidate>
                 <fieldset>
                     <legend>Formulir Pendaftaran</legend>
                     <p>
                         <label for="nama_lengkap">Nama Lengkap:</label>
                         <input type="text" id="nama_lengkap" name="nama_lengkap" required placeholder="Contoh: Budi Santoso">
+                        <!-- Tempat untuk pesan error nama -->
+                        <small class="error-message" id="nama-error"></small>
                     </p>
                     <p>
                         <label for="nomor_rumah">Nomor Rumah:</label>
                         <input type="text" id="nomor_rumah" name="nomor_rumah" required placeholder="Contoh: A12">
+                        <!-- Tempat untuk pesan error nomor rumah -->
+                        <small class="error-message" id="rumah-error"></small>
                     </p>
                     <p>
                         <label for="kegiatan_dipilih">Pilih Kegiatan:</label>
@@ -140,6 +148,8 @@
                         </select>
                     </p>
                     <button type="submit">Daftar Sekarang</button>
+                    <!-- Tempat untuk pesan sukses -->
+                    <p class="success-message" id="success-message"></p>
                 </fieldset>
             </form>
         </section>
@@ -148,6 +158,9 @@
     <footer>
         <p>&copy; 2025 Pengurus RT 05. Semua Hak Cipta Dilindungi.</p>
     </footer>
+
+    <!-- Memanggil file JavaScript eksternal -->
+    <script src="script.js"></script>
 
 </body>
 </html>

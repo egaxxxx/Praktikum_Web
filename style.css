@@ -12,6 +12,14 @@
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Variabel warna akan ditimpa saat body memiliki class .dark-mode */
+body.dark-mode {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,15 +28,19 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    /* DIUBAH: Menggunakan clamp untuk font-size yang lebih fluid */
+    font-size: clamp(15px, 1.5vw, 16px);
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    /* DIUBAH: Padding yang lebih responsif */
+    padding: 0 clamp(1rem, 5vw, 2rem);
 }
 
 h1, h2, h3 {
@@ -55,7 +67,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Agar responsif */
+    flex-wrap: wrap;
 }
 
 nav .logo {
@@ -67,6 +79,7 @@ nav .logo {
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 1.5rem;
 }
 
@@ -80,18 +93,36 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
+.theme-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    padding: 0;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-button:hover {
+    transform: scale(1.1);
+}
+
 /* == Hero Section == */
 #hero {
     background: linear-gradient(rgba(0, 123, 255, 0.7), rgba(0, 123, 255, 0.7)), url('https://via.placeholder.com/1200x400.png?text=Lingkungan+RT+05') no-repeat center center/cover;
     color: white;
     text-align: center;
-    padding: 5rem 1rem;
+    /* DIUBAH: Padding vertikal yang lebih fluid */
+    padding: clamp(3rem, 10vw, 5rem) 1rem;
     border-radius: var(--border-radius);
-    margin: 2rem 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 #hero h1 {
-    font-size: 2.8rem;
+    /* DIUBAH: Fluid H1, akan menyesuaikan ukuran secara mulus */
+    font-size: clamp(2rem, 1rem + 5vw, 3rem);
 }
 
 .cta-button {
@@ -116,13 +147,13 @@ main {
 
 section {
     margin-bottom: 3rem;
-    /* Memberi sedikit padding agar ada jarak saat di-scroll */
     scroll-margin-top: 80px; 
 }
 
 section h2 {
     text-align: center;
-    font-size: 2.2rem;
+    /* DIUBAH: Fluid H2, menyesuaikan ukuran juga */
+    font-size: clamp(1.8rem, 1rem + 3vw, 2.2rem);
     margin-bottom: 2rem;
     position: relative;
 }
@@ -162,7 +193,7 @@ section h2::after {
 }
 
 .card p em {
-    font-size: 0.9rem;
+    font-size: 0.9em; /* Menggunakan em agar ikut skala font body */
     color: var(--secondary-color);
 }
 
@@ -190,7 +221,7 @@ section h2::after {
 }
 
 #pendaftaran legend {
-    font-size: 1.5rem;
+    font-size: 1.5em; /* Menggunakan em agar ikut skala */
     font-weight: 600;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -215,6 +246,17 @@ section h2::after {
     font-size: 1rem;
 }
 
+body.dark-mode #pendaftaran input,
+body.dark-mode #pendaftaran select {
+    background-color: #333;
+    color: var(--text-color);
+    border-color: #555;
+}
+
+body.dark-mode #pendaftaran input::placeholder {
+    color: #888;
+}
+
 #pendaftaran button {
     width: 100%;
     padding: 0.8rem;
@@ -232,6 +274,21 @@ section h2::after {
     background-color: #0056b3;
 }
 
+.error-message {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+    display: block;
+    min-height: 1em; /* Mencegah layout bergeser saat pesan muncul/hilang */
+}
+
+.success-message {
+    color: #28a745; /* Warna hijau untuk sukses */
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
 /* == Footer == */
 footer {
     text-align: center;
@@ -246,6 +303,7 @@ footer {
     nav {
         flex-direction: column;
         align-items: flex-start;
+        gap: 1rem; /* Memberi jarak antara logo dan menu */
     }
 
     nav ul {
@@ -266,8 +324,8 @@ footer {
         background: var(--background-color);
         border-radius: var(--border-radius);
     }
-
-    #hero h1 {
-        font-size: 2.2rem;
+    
+    .theme-button {
+        margin: 0.5rem auto 0;
     }
 }
