@@ -1,7 +1,5 @@
-/* == Google Fonts (Optional, untuk tampilan font yang lebih baik) == */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* == Reset & Global Styles == */
 :root {
     --primary-color: #007bff;
     --secondary-color: #6c757d;
@@ -12,7 +10,6 @@
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Variabel warna akan ditimpa saat body memiliki class .dark-mode */
 body.dark-mode {
     --background-color: #121212;
     --text-color: #e0e0e0;
@@ -28,7 +25,6 @@ body.dark-mode {
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* DIUBAH: Menggunakan clamp untuk font-size yang lebih fluid */
     font-size: clamp(15px, 1.5vw, 16px);
     line-height: 1.6;
     background-color: var(--background-color);
@@ -39,7 +35,6 @@ body {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    /* DIUBAH: Padding yang lebih responsif */
     padding: 0 clamp(1rem, 5vw, 2rem);
 }
 
@@ -53,7 +48,6 @@ a {
     color: var(--primary-color);
 }
 
-/* == Header & Navigation == */
 header {
     background-color: var(--card-bg);
     box-shadow: var(--box-shadow);
@@ -108,12 +102,10 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
-/* == Hero Section == */
 #hero {
     background: linear-gradient(rgba(0, 123, 255, 0.7), rgba(0, 123, 255, 0.7)), url('https://via.placeholder.com/1200x400.png?text=Lingkungan+RT+05') no-repeat center center/cover;
     color: white;
     text-align: center;
-    /* DIUBAH: Padding vertikal yang lebih fluid */
     padding: clamp(3rem, 10vw, 5rem) 1rem;
     border-radius: var(--border-radius);
     margin-top: 2rem;
@@ -121,7 +113,6 @@ nav ul li a:hover {
 }
 
 #hero h1 {
-    /* DIUBAH: Fluid H1, akan menyesuaikan ukuran secara mulus */
     font-size: clamp(2rem, 1rem + 5vw, 3rem);
 }
 
@@ -140,7 +131,6 @@ nav ul li a:hover {
     transform: translateY(-3px);
 }
 
-/* == Main Content & Sections == */
 main {
     padding: 2rem 0;
 }
@@ -152,7 +142,6 @@ section {
 
 section h2 {
     text-align: center;
-    /* DIUBAH: Fluid H2, menyesuaikan ukuran juga */
     font-size: clamp(1.8rem, 1rem + 3vw, 2.2rem);
     margin-bottom: 2rem;
     position: relative;
@@ -168,7 +157,6 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* == Card Layout using CSS Grid == */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -193,7 +181,7 @@ section h2::after {
 }
 
 .card p em {
-    font-size: 0.9em; /* Menggunakan em agar ikut skala font body */
+    font-size: 0.9em;
     color: var(--secondary-color);
 }
 
@@ -206,7 +194,6 @@ section h2::after {
     margin-bottom: 0.5rem;
 }
 
-/* == Form Styling == */
 #pendaftaran form {
     max-width: 600px;
     margin: 0 auto;
@@ -221,7 +208,7 @@ section h2::after {
 }
 
 #pendaftaran legend {
-    font-size: 1.5em; /* Menggunakan em agar ikut skala */
+    font-size: 1.5em;
     font-weight: 600;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -279,17 +266,16 @@ body.dark-mode #pendaftaran input::placeholder {
     font-size: 0.875em;
     margin-top: 0.25rem;
     display: block;
-    min-height: 1em; /* Mencegah layout bergeser saat pesan muncul/hilang */
+    min-height: 1em;
 }
 
 .success-message {
-    color: #28a745; /* Warna hijau untuk sukses */
+    color: #28a745;
     text-align: center;
     margin-top: 1rem;
     font-weight: 600;
 }
 
-/* == Footer == */
 footer {
     text-align: center;
     padding: 2rem 0;
@@ -298,12 +284,11 @@ footer {
     color: white;
 }
 
-/* == Media Queries for Responsiveness == */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem; /* Memberi jarak antara logo dan menu */
+        gap: 1rem;
     }
 
     nav ul {

@@ -1,26 +1,21 @@
-// Menunggu seluruh konten halaman (DOM) dimuat sebelum menjalankan skrip
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- 1. Fitur Dark Mode Toggle ---
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Fungsi untuk menerapkan tema yang dipilih dan mengubah ikon tombol
     function applyTheme(theme) {
         if (theme === 'dark') {
             body.classList.add('dark-mode');
-            themeToggle.textContent = '☀️'; // Ikon matahari
+            themeToggle.textContent = '☀️';
         } else {
             body.classList.remove('dark-mode');
-            themeToggle.textContent = '🌙'; // Ikon bulan
+            themeToggle.textContent = '🌙';
         }
     }
 
-    // Cek tema yang tersimpan di localStorage saat halaman pertama kali dimuat
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
 
-    // Tambahkan event listener untuk tombol
     themeToggle.addEventListener('click', () => {
         const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -30,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    // --- 2. Fitur Validasi dan Penanganan Formulir Pendaftaran ---
     const formPendaftaran = document.querySelector('#pendaftaran form');
 
     if (formPendaftaran) {
@@ -76,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // --- 3. Fitur Interaksi pada Kartu Kegiatan ---
     const semuaKartu = document.querySelectorAll('.card');
 
     semuaKartu.forEach(function(kartu) {
@@ -92,35 +85,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    // --- 4. Fitur Konfirmasi untuk Tautan Login Admin ---
-    const linkLoginAdmin = document.querySelector('a[href="admin_login.html"]');
+        const linkLoginAdmin = document.querySelector('a[href="login.php"]');
+    
+        if (linkLoginAdmin) {
+            linkLoginAdmin.addEventListener('click', function(event) {
+                event.preventDefault();
+    
+                const konfirmasi = confirm('Anda akan diarahkan ke halaman login admin. Apakah Anda yakin ingin melanjutkan?');
+    
+                if (konfirmasi) {
+                    window.location.href = 'login.php';
+                }
+            });
+        }
 
-    if (linkLoginAdmin) {
-        linkLoginAdmin.addEventListener('click', function(event) {
-            event.preventDefault();
-
-            const konfirmasi = confirm('Anda akan diarahkan ke halaman login admin. Apakah Anda yakin ingin melanjutkan?');
-
-            if (konfirmasi) {
-                const urlTujuan = linkLoginAdmin.href;
-
-                fetch(urlTujuan, { method: 'HEAD' })
-                    .then(response => {
-                        if (response.ok) {
-                            window.location.href = urlTujuan;
-                        } else {
-                            alert('Peringatan: Halaman login admin tidak dapat ditemukan. File "admin_login.html" mungkin belum dibuat atau salah penempatan.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error saat memeriksa halaman admin:', error);
-                        alert('Terjadi kesalahan saat mencoba mengakses halaman admin. Silakan periksa koneksi Anda.');
-                    });
-            }
-        });
-    }
-
-    // --- 5. Fitur Animasi Smooth Scrolling untuk Link Navigasi ---
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
 
     scrollLinks.forEach(link => {

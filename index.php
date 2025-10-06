@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistem Informasi Kegiatan Lingkungan RT 05. Jadwal, dokumentasi, dan pendaftaran kegiatan warga.">
+    <title>Sistem Informasi Kegiatan Lingkungan RT 05</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.php" class="logo"><strong>Info Warga RT 05</strong></a>
+                <ul>
+                                    <li><a href="#pengumuman">📢 Pengumuman</a></li>
+                                    <li><a href="#jadwal">📅 Jadwal Kegiatan</a></li>
+                                    <li><a href="#dokumentasi">📸 Dokumentasi</a></li>
+                                    <li><a href="#pendaftaran">📝 Pendaftaran</a></li>
+                                    <li><a href="login.php">🔒 Login Admin</a></li>
+                                    <li><button id="theme-toggle" class="theme-button">🌙</button></li>
+                                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="hero">
+            <h1>Selamat Datang di Sistem Informasi Kegiatan Lingkungan RT 05</h1>
+            <p>Pusat informasi resmi untuk seluruh kegiatan, berita terbaru, dan partisipasi aktif warga RT 05.</p>
+            <a href="#pengumuman" class="cta-button">Lihat Pengumuman Terbaru</a>
+        </section>
+
+        <section id="pengumuman">
+            <h2>Pengumuman Penting</h2>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Lomba Kebersihan Antar Blok</h3>
+                    <p>Dalam rangka menyambut hari jadi kompleks, akan diadakan lomba kebersihan antar blok. Pemenang akan mendapatkan hadiah menarik!</p>
+                    <p><em>Diposting: <time datetime="2025-09-14">14 September 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <h3>Pengumuman Arisan Bulanan</h3>
+                    <p>Arisan warga RT 05 akan diadakan pada hari Minggu, 22 September 2025 pukul 19.00 di rumah Bapak Budi (No. 12).</p>
+                    <p><em>Diposting: <time datetime="2025-09-05">5 September 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <h3>Sosialisasi Program Bank Sampah</h3>
+                    <p>Akan diadakan sosialisasi mengenai program Bank Sampah RT di Balai Warga. Diharapkan kehadiran perwakilan setiap rumah.</p>
+                    <p><em>Diposting: <time datetime="2025-07-28">28 Juli 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <h3>Pengumuman Libur Nasional</h3>
+                    <p>Seluruh kegiatan rutin RT akan diliburkan pada tanggal 17 Agustus 2025 dalam rangka peringatan HUT RI.</p>
+                    <p><em>Diposting: <time datetime="2025-08-01">1 Agustus 2025</time></em></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="jadwal">
+            <h2>Jadwal Kegiatan Mendatang</h2>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Vaksinasi Hewan Peliharaan</h3>
+                    <p>Bekerja sama dengan dinas kesehatan, akan diadakan vaksinasi gratis untuk anjing dan kucing.</p>
+                    <ul>
+                        <li><strong>Tanggal:</strong> <time datetime="2025-09-25">25 September 2025</time></li>
+                        <li><strong>Waktu:</strong> 09:00 WIB - Selesai</li>
+                        <li><strong>Lokasi:</strong> Taman Kompleks RT 05</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Kerja Bakti Rutin Bulanan</h3>
+                    <p>Kegiatan membersihkan lingkungan RT secara gotong royong.</p>
+                    <ul>
+                        <li><strong>Tanggal:</strong> <time datetime="2025-09-10">10 September 2025</time></li>
+                        <li><strong>Waktu:</strong> 07:00 WIB - Selesai</li>
+                        <li><strong>Lokasi:</strong> Titik kumpul Pos Ronda RT 05</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Pertemuan Rutin Ibu-Ibu PKK</h3>
+                    <p>Pertemuan bulanan PKK untuk membahas kegiatan sosial dan ekonomi warga.</p>
+                    <ul>
+                        <li><strong>Tanggal:</strong> <time datetime="2025-09-20">20 September 2025</time></li>
+                        <li><strong>Waktu:</strong> 16:00 WIB - Selesai</li>
+                        <li><strong>Lokasi:</strong> Balai Pertemuan RT 05</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+        
+        <section id="dokumentasi">
+            <h2>Dokumentasi Kegiatan yang Lalu</h2>
+            <div class="card-grid">
+                <article class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Kerja+Bakti" alt="Foto Kerja Bakti" style="width:100%; border-radius: var(--border-radius); margin-bottom: 1rem;">
+                    <h3>Kerja Bakti September</h3>
+                    <p>Warga bergotong royong membersihkan area taman dan selokan untuk kenyamanan bersama.</p>
+                    <p><em><time datetime="2025-09-10">10 September 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Lomba+17+Agustus" alt="Foto Lomba 17 Agustus" style="width:100%; border-radius: var(--border-radius); margin-bottom: 1rem;">
+                    <h3>Perlombaan 17 Agustus</h3>
+                    <p>Keseruan berbagai lomba dalam rangka merayakan Hari Kemerdekaan Republik Indonesia.</p>
+                    <p><em><time datetime="2025-08-17">17 Agustus 2025</time></em></p>
+                </article>
+                <article class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Posyandu+Warga" alt="Foto Kegiatan Posyandu" style="width:100%; border-radius: var(--border-radius); margin-bottom: 1rem;">
+                    <h3>Kegiatan Posyandu</h3>
+                    <p>Pemeriksaan kesehatan rutin untuk balita dan ibu hamil yang diadakan di Balai Warga.</p>
+                    <p><em><time datetime="2025-07-15">15 Juli 2025</time></em></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="pendaftaran">
+            <h2>Daftar Partisipasi Kegiatan</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 1.5rem auto;">Silakan mengisi formulir di bawah ini untuk mendaftarkan diri Anda sebagai peserta kegiatan.</p>
+            <form action="#" method="post" novalidate>
+                <fieldset>
+                    <legend>Formulir Pendaftaran</legend>
+                    <p>
+                        <label for="nama_lengkap">Nama Lengkap:</label>
+                        <input type="text" id="nama_lengkap" name="nama_lengkap" required placeholder="Contoh: Budi Santoso">
+                        <small class="error-message" id="nama-error"></small>
+                    </p>
+                    <p>
+                        <label for="nomor_rumah">Nomor Rumah:</label>
+                        <input type="text" id="nomor_rumah" name="nomor_rumah" required placeholder="Contoh: A12">
+                        <small class="error-message" id="rumah-error"></small>
+                    </p>
+                    <p>
+                        <label for="kegiatan_dipilih">Pilih Kegiatan:</label>
+                        <select id="kegiatan_dipilih" name="kegiatan_dipilih">
+                            <option value="kerja_bakti">Kerja Bakti Rutin Bulanan</option>
+                            <option value="sosialisasi_banksampah">Sosialisasi Bank Sampah</option>
+                            <option value="lomba_kebersihan">Lomba Kebersihan Antar Blok</option>
+                            <option value="vaksinasi_hewan">Vaksinasi Hewan Peliharaan</option>
+                        </select>
+                    </p>
+                    <button type="submit">Daftar Sekarang</button>
+                    <p class="success-message" id="success-message"></p>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Pengurus RT 05. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
